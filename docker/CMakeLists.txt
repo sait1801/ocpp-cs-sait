@@ -12,7 +12,7 @@ message(STATUS "Project description: ${PROJECT_DESCRIPTION}")
 
 # Settings
 # ----------------------------------------------------------------------------------------------------------------------
-set(INSTALL_AS_ROOT    ON  CACHE BOOL "Install as root")
+set(INSTALL_AS_ROOT    OFF  CACHE BOOL "Install as root")
 set(USE_SYSTEMD        ON  CACHE BOOL "Use systemd")
 set(WITH_AUTHORIZATION OFF CACHE BOOL "Build with authorization")
 set(WITH_POSTGRESQL    OFF CACHE BOOL "Build with PostgreSQL")

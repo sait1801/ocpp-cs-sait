@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(ocpp-cs)
+project(apostol-cs)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libgcc -static-libstdc++ -rdynamic")
@@ -14,8 +14,8 @@ message(STATUS "Project description: ${PROJECT_DESCRIPTION}")
 # ----------------------------------------------------------------------------------------------------------------------
 set(INSTALL_AS_ROOT    ON  CACHE BOOL "Install as root")
 set(USE_SYSTEMD        ON  CACHE BOOL "Use systemd")
-set(WITH_AUTHORIZATION OFF  CACHE BOOL "Build with authorization")
-set(WITH_POSTGRESQL    OFF  CACHE BOOL "Build with PostgreSQL")
+set(WITH_AUTHORIZATION OFF CACHE BOOL "Build with authorization")
+set(WITH_POSTGRESQL    OFF CACHE BOOL "Build with PostgreSQL")
 set(WITH_SSL           ON  CACHE BOOL "Build with SSL")
 set(WITH_CURL          OFF CACHE BOOL "Build with cURL")
 set(WITH_SQLITE3       OFF CACHE BOOL "Build with Sqlite3")
@@ -117,11 +117,6 @@ file(GLOB lib_files ${lib_files} ${PROJECT_LIB_DIR}/picojson/*.h)
 # ----------------------------------------------------------------------------------------------------------------------
 include_directories(${PROJECT_LIB_DIR}/jwt-cpp)
 file(GLOB lib_files ${lib_files} ${PROJECT_LIB_DIR}/jwt-cpp/*.h)
-
-set(JWT_JSON_TRAITS_OPTIONS boost-json danielaparker-jsoncons kazuho-picojson nlohmann-json)
-foreach(traits ${JWT_JSON_TRAITS_OPTIONS})
-    list(APPEND lib_files ${PROJECT_LIB_DIR}/jwt-cpp/traits/${traits}/defaults.h ${PROJECT_LIB_DIR}/jwt-cpp/traits/${traits}/traits.h)
-endforeach()
 
 # Apostol
 # ----------------------------------------------------------------------------------------------------------------------
